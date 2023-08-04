@@ -40,42 +40,13 @@ router.get('/', async (req, res) => {
   });
   
 
-// Agregar un producto al carrito
-// router.post("/:cid/product/:pid", async (req, res) => {
-//   try {
-//     const cartId = req.params.cid;
-//     const productId = req.params.pid;
 
-//     const cartData = await carts.getById(cartId);
-
-//     if (!cartData) {
-//       res.status(404).json({ error: "Carrito no encontrado" });
-//       return;
-//     }
-
-//     const existingProduct = await products.getById(productId);
-
-//     if (existingProduct) {
-//       const cartUpdated = await carts.update(cartId, existingProduct);
-//       res.json({
-//         message: "Producto agregado al carrito correctamente",
-//         data: cartUpdated,
-//       });
-//     } else {
-//       res.status(404).json({ error: "Producto no encontrado" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({
-//       message: "Error al agregar el producto al carrito",
-//       error: error,
-//     });
-//   }
-// });
 router.post("/:cid/product/:pid", async (req, res) => {
   try {
     const cartId = req.params.cid;
     const productId = req.params.pid;
-
+         
+    
     const cartData = await carts.getById(cartId);
 
     if (!cartData) {
