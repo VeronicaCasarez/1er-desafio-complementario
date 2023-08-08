@@ -40,13 +40,12 @@ router.get('/', async (req, res) => {
   });
   
 
-
+//agregar un producto al carrito
 router.post("/:cid/product/:pid", async (req, res) => {
   try {
     const cartId = req.params.cid;
     const productId = req.params.pid;
          
-    
     const cartData = await carts.getById(cartId);
 
     if (!cartData) {
@@ -57,6 +56,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
     const existingProduct = await productsManager.getById(productId);
    
     if (existingProduct) {
+    
       const cartUpdated = await carts.update(cartId, existingProduct);
       res.json({
         message: "Producto agregado al carrito correctamente",

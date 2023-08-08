@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 
 // Configurar el puerto
-const PORT = process.env.PORT || 8089;
+const PORT = process.env.PORT || 8080;
 
 //Configuracion para handlebars
 app.engine("handlebars", handlebars.engine());

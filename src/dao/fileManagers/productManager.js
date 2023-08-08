@@ -1,13 +1,12 @@
 import fs from "fs";
-import { __dirname } from "../../utils.js";
-
-const path=__dirname+'/files/products.json'
 
 class ProductManager {
- 
+  static productId = 1;
 
-  constructor() {
-   
+  constructor(path) {
+    this.products = [];
+    this.path = path;
+    this.readCounterFromFile();
     
   }
 
@@ -56,7 +55,7 @@ class ProductManager {
   
 
 
-  async getAll() {
+  async getProducts() {
     try {
       const products = await this.readDataFromFile();
       return products; // Devolver los productos encontrados
@@ -66,7 +65,7 @@ class ProductManager {
     }
   }
 
-  async getById(productId) {
+  async getProductById(productId) {
     try {
       const products = await this.readDataFromFile();
       const productFind = products.find((product) => product.id === productId);
@@ -82,7 +81,7 @@ class ProductManager {
     }
   }
 
-  async update(id, updatedFields) {
+  async updateProduct(id, updatedFields) {
     try {
       const products = await this.readDataFromFile();
       const productIndex = products.findIndex((product) => product.id === id);
@@ -102,7 +101,7 @@ class ProductManager {
     }
   }
 
-  async delete(id) {
+  async deleteProduct(id) {
     try {
       const products = await this.readDataFromFile();
       const updatedProducts = products.filter((product) => parseInt(product.id) !== parseInt(id));

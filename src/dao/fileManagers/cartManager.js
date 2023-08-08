@@ -1,7 +1,4 @@
 import fs from "fs";
-import { __dirname } from "../../utils.js";
-
-const path=__dirname+'files/carts.json';
 
 class CartManager {
 //   static productId = 1;
@@ -13,6 +10,7 @@ class CartManager {
     
   }
  
+
  //mostrar el carrito
   async getCart(newCart) {
     try {
@@ -129,3 +127,19 @@ async readCounterFromFile() {
 ////////////////////
 
 export default CartManager;
+
+
+
+// async getProductByCode(code) {
+//   try {
+//     const products = await this.readDataFromFile();
+//     const product = products.find((product) => product.code === code);
+//     return product || null;
+//   } catch (err) {
+//     console.log(err);
+//     return null;
+//   }
+// }
+// }
+
+
