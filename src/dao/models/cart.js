@@ -1,6 +1,5 @@
 
-import mongoose from 'mongoose';// este funciona bastante bien
-
+import mongoose from 'mongoose';
 const cartsCollection = 'Carts';
 
 const cartSchema = new mongoose.Schema({
