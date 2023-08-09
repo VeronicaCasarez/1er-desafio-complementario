@@ -1,4 +1,4 @@
-import cartModel from '../models/cart.js';
+import cartModel from "../models/cart.js";
 
 export default class Carts {
   async getAll() {
@@ -10,13 +10,14 @@ export default class Carts {
   }
 
   async save(data) {
-    const createdCart = await cartModel.create(data);
-    return createdCart;
+    const newCart = await cartModel.create(data);
+    return newCart;
     
  }
 
   async update(id, data) {
-    const updatedCart = await  cartModel.findByIdAndUpdate(id, data);
+    
+    const updatedCart = await  cartModel.findByIdAndUpdate(id, {products:data});
     return updatedCart;
   }
 
